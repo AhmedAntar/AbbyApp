@@ -1,0 +1,23 @@
+﻿@page
+@model AbbyWeb.Pages.Categories.EditModel
+
+<div class="container">
+    <div class="row pt-2">
+        <h4>Edit a category</h4>
+        <form class="p-4 mt-4 w-75" method="post">
+            <input hidden asp-for = "Category.Id" />
+            <div class="text-warning" asp-validation-summary="All"></div>
+            <div class="mb-3">
+                <label asp-for="Category.Name" class="form-label">Category Name</label>
+                <input type="text" class="form-control" asp-for="Category.Name">
+                <span asp-validation-for="Category.Name" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Category.DisplayOrder" class="form-label">Category display order</label>
+                <input asp-for="Category.DisplayOrder" type="number" class="form-control">
+                <span asp-validation-for="Category.DisplayOrder" class="text-danger"> </span>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>

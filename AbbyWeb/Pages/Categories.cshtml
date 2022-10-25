@@ -1,0 +1,55 @@
+﻿@page
+@model AbbyWeb.Pages.CategoriesModel
+
+            <div class="container pt-4">
+                
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Category List</h3>
+                    </div>
+                    <div class="col-6 ">
+                        <a asp-page="/Categories/create" class="btn btn-primary float-end">
+                            <i class="bi bi-pencil-square"></i>&ensp;
+                            Create new Category
+                        </a>
+                    </div>
+                </div> 
+                <div class="row mt-3">
+                    <div class="col-12 p-2">
+                        <table class="table table-striped w-75">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Display Order</th>
+                                    <th>Queries</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tab-content">
+                                @foreach (var category in Model.Categories)
+                    {
+                                    <tr>
+                                        <td class="w-50"> @category.Name</td>
+                                        <td class="">@category.DisplayOrder </td>
+                                        <td class="">
+                                            <div class="btn-group">
+                                                <a asp-page="/Categories/Edit" asp-route-id="@category.Id" class="btn btn-primary">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </a>&ensp;
+                                                <a asp-page="/Categories/Delete" asp-route-id="@category.Id" class="btn btn-danger">
+                                                    <i class="bi bi-trash-fill"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                    }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            @section Scripts{
+                @{
+                                <partial name = "_ValidationScriptsPartial"/>
+                }
+            }
